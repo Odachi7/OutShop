@@ -26,7 +26,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState<'smartphones' | 'laptops'>('laptops');
 
-  const API_BASE = 'http://localhost:3001'
+  const API_BASE = 'https://outshop-la70.onrender.com';
 
   useEffect(() => {
     async function fetchProducts() {
@@ -34,8 +34,8 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
         setLoading(true);
 
         const [smartphonesRes, laptopsRes] = await Promise.all([
-          axios.get('http://localhost:3001/produtos/laptops'),
-          axios.get('http://localhost:3001/produtos/smartphones'),
+          axios.get(`${API_BASE}/produtos/laptops`),
+          axios.get(`${API_BASE}/produtos/smartphones`),
         ]);
 
         const allProducts = [...smartphonesRes.data, ...laptopsRes.data];
