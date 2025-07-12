@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { HiChevronUp, HiChevronDown } from "react-icons/hi";
 import { CartContext } from "../../context/CartContext";
+import toast from "react-hot-toast";
 
 export function TotalMobile() {
     const [info, setInfo] = useState(false)
@@ -29,6 +30,15 @@ export function TotalMobile() {
         } else {
             setInfo(false)
         }
+    }
+
+    function handlePagamento() {
+        toast.error('Página de pagamento em construção!', {
+            iconTheme: {
+                primary: 'oklch(70.4% 0.191 22.216)', 
+                secondary: '#f0fdf4', 
+            },
+        });
     }
 
     return (
@@ -115,7 +125,7 @@ export function TotalMobile() {
 
                 </div>
 
-                <button className="text-white w-full font-bold mt-5 py-3.5 mb-5 bg-red-400 rounded-sm text-md cursor-pointer hover:bg-red-400/70 duration-150">
+                <button onClick={() => handlePagamento()} className="text-white w-full font-bold mt-5 py-3.5 mb-5 bg-red-400 rounded-sm text-md cursor-pointer hover:bg-red-400/70 duration-150">
                     IR PARA O PAGAMENTO
                 </button>
             </div>
