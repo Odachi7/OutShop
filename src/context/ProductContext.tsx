@@ -26,7 +26,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState<'smartphones' | 'laptops'>('laptops');
 
-  const API_BASE = 'https://outshop-la70.onrender.com';
+  const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
   useEffect(() => {
     async function fetchProducts() {
